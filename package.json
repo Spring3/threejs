@@ -1,0 +1,30 @@
+{
+  "name": "threejs",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "start": "node ./start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spring3/threejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spring3/threejs/issues"
+  },
+  "homepage": "https://github.com/Spring3/threejs#readme",
+  "dependencies": {
+    "three": "^0.152.2"
+  },
+  "devDependencies": {
+    "inquirer": "^9.2.2",
+    "rxjs": "^7.8.1",
+    "vite": "^4.3.5"
+  }
+}

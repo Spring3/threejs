@@ -1,13 +1,8 @@
 import * as Three from 'three';
 import '@csstools/normalize.css';
+import { ensureCanvasExists } from '../common';
 
-document.body.style.setProperty('margin', 0);
-
-let canvas = document.querySelector('canvas');
-if (!canvas) {
-  canvas = document.createElement('canvas');
-  document.body.appendChild(canvas);
-}
+const canvas = ensureCanvas();
 
 const scene = new Three.Scene();
 

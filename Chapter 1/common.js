@@ -1,3 +1,5 @@
+import '@csstools/normalize.css';
+
 document.body.style.setProperty('margin', 0);
 
 export const ensureCanvasExists = () => {

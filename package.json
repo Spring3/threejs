@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Spring3/threejs#readme",
   "dependencies": {
     "@csstools/normalize.css": "^12.0.0",
+    "gsap": "^3.11.5",
     "three": "^0.152.2"
   },
   "devDependencies": {

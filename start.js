@@ -13,7 +13,7 @@ let targetFolder = '';
 
 const getDirectoriesInFolder = async ({ folder, matching }) => {
   const entities = await fs.readdir(folder, { withFileTypes: true });
-  const matchingDirectories = entities.filter((entity) => entity.isDirectory() && entity.name.includes(matching));
+  const matchingDirectories = entities.filter((entity) => entity.isDirectory() && entity.name.toLowerCase().includes(matching.toLowerCase()));
   return matchingDirectories.map((dir) => dir.name);
 }
 
@@ -39,7 +39,7 @@ inquirer.prompt(prompts).ui.process.subscribe(async ({ name, answer }) => {
     case Subjects.Lesson: {
       const lesson = answer;
       const lessonDirPath = path.join(targetFolder, lesson);
-      const viteServerProcess = process.exec(`yarn dev "${lessonDirPath}"`, (error, stdout, stderr) => {
+      const viteServerProcess = process.exec(`yarn dev "${lessonDirPath}"`, (error) => {
         if (error) {
           console.log(error);
           return;
@@ -55,7 +55,7 @@ inquirer.prompt(prompts).ui.process.subscribe(async ({ name, answer }) => {
   }
 });
 
-const chapters = await getDirectoriesInFolder({ folder: './', matching: 'Chapter' });
+const chapters = await getDirectoriesInFolder({ folder: './', matching: 'chapter' });
 
 prompts.next({
   type: 'list',

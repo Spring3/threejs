@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite",
+    "dev": "vite --config vite.config.js",
     "start": "node ./start"
   },
   "repository": {
@@ -22,6 +22,7 @@
   "dependencies": {
     "@csstools/normalize.css": "^12.0.0",
     "gsap": "^3.12.2",
+    "lil-gui": "^0.18.2",
     "three": "^0.156.1"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import * as Three from 'three';
-import { ensureCanvasExists } from '../common';
+import { ensureCanvasExists } from '../../common';
 
 const canvas = ensureCanvasExists();
 

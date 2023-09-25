@@ -1,7 +1,7 @@
 import * as Three from 'three'
 import { OrbitControls } from 'Three/examples/jsm/controls/OrbitControls'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
-import { ensureCanvasExists } from '../common'
+import { ensureCanvasExists } from '../../common'
 import { GUI } from 'lil-gui';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 

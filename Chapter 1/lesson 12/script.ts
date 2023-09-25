@@ -1,6 +1,6 @@
 import * as Three from 'three'
 import { OrbitControls } from 'Three/examples/jsm/controls/OrbitControls'
-import { ensureCanvasExists } from '../common'
+import { ensureCanvasExists } from '../../common'
 import { GUI } from 'lil-gui';
 
 Three.ColorManagement.enabled = false

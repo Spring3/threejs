@@ -1,6 +1,6 @@
 import * as Three from 'three';
 import gsap from 'gsap';
-import { ensureCanvasExists } from '../common';
+import { ensureCanvasExists } from '../../common';
 import { GUI } from 'lil-gui';
 
 const loadingManager = new Three.LoadingManager();

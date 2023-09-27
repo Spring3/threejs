@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 - Scroll based animation</title>
+    <style>
+      html {
+        background: #1e1a20;
+      }
+
+      canvas
+      {
+          position: fixed;
+          top: 0;
+          left: 0;
+          outline: none;
+      }
+      .section
+        {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            font-family: 'Cabin', sans-serif;
+            color: #ffeded;
+            text-transform: uppercase;
+            font-size: 7vmin;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        section:nth-child(odd)
+        {
+            justify-content: flex-end;
+        }
+    </style>
+  </head>
+  <body>
+    <section class="section">
+      <h1>My Portfolio</h1>
+    </section>
+    <section class="section">
+        <h2>My projects</h2>
+    </section>
+    <section class="section">
+        <h2>Contact me</h2>
+    </section>
+    <script type="module" src="./script.ts"></script>
+  </body>
+</html>

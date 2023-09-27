@@ -1,6 +1,6 @@
 import '@csstools/normalize.css';
 
-document.body.style.setProperty('margin', 0);
+document.body.style.setProperty('margin', '0px');
 
 export const ensureCanvasExists = () => {
   let canvas = document.querySelector('canvas');

@@ -49,6 +49,10 @@ inquirer.prompt(prompts).ui.process.subscribe(async ({ name, answer }) => {
       viteServerProcess.stdout.on('data', (chunk) => {
         console.log(chunk);
       })
+
+      viteServerProcess.stdout.on('error', (chunk) => {
+        console.error(chunk);
+      })
       prompts.complete();
       break;
     }

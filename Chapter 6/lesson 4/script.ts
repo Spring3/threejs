@@ -3,6 +3,7 @@ import * as Three from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+import { gsap } from 'gsap';
 import { ensureCanvasExists } from "../../common";
 import firefliesVertexShader from "./shaders/fireflies/vertex.glsl";
 import firefliesFragmentShader from "./shaders/fireflies/fragment.glsl";
@@ -38,7 +39,7 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.setDRACOLoader(dracoLoader);
 
 const debugObject = {
-  colorStart: '#9126ff',
+  colorStart: '#6100c2',
   colorEnd: '#9126ff'
 }
 
@@ -81,25 +82,30 @@ gltfLoader.load("portalScene/PortalSceneOptimized.glb", (gltf) => {
       child.material = poleLightMaterial;
     } else if (child.name === "PortalLight") {
       child.material = portalLightMaterial;
+      gsap.fromTo(child.scale, { x: .9 }, { x: .82, duration: 4.5, yoyo: true, yoyoEase: 'power1.inOut', repeat: -1 });
+      gsap.fromTo(child.scale, { z: .9 }, { z: .95, duration: 5, yoyo: true, yoyoEase: 'power1.inOut', repeat: -1, delay: .1 });
     } else {
       child.material = bakedMaterial;
     }
   });
 
-  gltf.scene.rotateY(4.25)
+  const angle = -180;
+  const radians = (angle * Math.PI) / 180;
+  
+  gltf.scene.rotateY(radians);
 
   scene.add(gltf.scene);
 });
 
 const firefliesGeometry = new Three.BufferGeometry();
-const fireflyCount = 30;
+const fireflyCount = 40;
 const positionArray = new Float32Array(fireflyCount * 3);
 const scaleArray = new Float32Array(fireflyCount);
 
 for (let i = 0; i < fireflyCount; i++) {
-  positionArray[i * 3] = (Math.random() - 0.5) * 4;
+  positionArray[i * 3] = (Math.random() - 0.5) * 3.2;
   positionArray[i * 3 + 1] = (Math.random() + 0.2) * 1.5;
-  positionArray[i * 3 + 2] = (Math.random() - 0.5) * 4;
+  positionArray[i * 3 + 2] = (Math.random() - 0.5) * 3.5;
 
   scaleArray[i] = Math.random();
 }
@@ -163,13 +169,15 @@ const camera = new Three.PerspectiveCamera(
   100
 );
 camera.position.x = 6;
-camera.position.y = 4;
-camera.position.z = 3;
+camera.position.y = 9;
+camera.position.z = 11;
 scene.add(camera);
 
 // Controls
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 2;
 
 /**
  * Renderer

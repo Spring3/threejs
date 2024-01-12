@@ -82,8 +82,6 @@ float cnoise(vec3 P)
 }
 
 void main() {
-  // #include <colorspace_fragment>;
-
   vec2 displacedUv = vUv + cnoise(vec3(vUv.xy * 7.0, uTime * 0.1));
   float strength = cnoise(vec3(displacedUv * 5.0, uTime * 0.2));
 
